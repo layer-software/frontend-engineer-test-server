@@ -1,0 +1,18 @@
+{
+  "name": "frontend-engineer-test-server",
+  "version": "1.0.0",
+  "description": "Layer Software / Server For Frontend Engineer Test",
+  "repository": "git@github.com:layer-software/frontend-engineer-test-server.git",
+  "author": "bez4pieci <ernests@golayer.io>",
+  "private": true,
+  "dependencies": {
+    "@graphql-tools/graphql-file-loader": "^6.2.7",
+    "@graphql-tools/load": "^6.2.8",
+    "@graphql-tools/schema": "^7.1.5",
+    "apollo-server": "^2.25.1",
+    "graphql": "^15.5.0"
+  },
+  "scripts": {
+    "start": "node --experimental-json-modules server.mjs"
+  }
+}
