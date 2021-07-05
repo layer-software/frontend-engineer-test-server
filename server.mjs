@@ -1,8 +1,11 @@
+import * as fs from "fs";
 import {ApolloServer} from "apollo-server";
 import {loadSchemaSync} from "@graphql-tools/load";
 import {GraphQLFileLoader} from "@graphql-tools/graphql-file-loader";
 import {addResolversToSchema} from "@graphql-tools/schema";
-import jsonData from "./data.json";
+
+const jsonDataRaw = fs.readFileSync('data.json');
+const jsonData = JSON.parse(jsonDataRaw);
 
 const schema = addResolversToSchema({
     schema: loadSchemaSync('./schema.graphql', {
@@ -11,10 +14,7 @@ const schema = addResolversToSchema({
     resolvers: {
         Query: {
             dataTables: () => jsonData.dataTables,
-            dataTable: (parent, args) => jsonData.dataTables.find(table => {
-                console.log(table.id, args.id);
-                return table.id === args.id;
-            })
+            dataTable: (parent, args) => jsonData.dataTables.find(table => table.id === args.id)
         },
     },
 });

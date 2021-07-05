@@ -13,6 +13,6 @@
     "graphql": "^15.5.0"
   },
   "scripts": {
-    "start": "node --experimental-json-modules server.mjs"
+    "start": "node server.mjs"
   }
 }
